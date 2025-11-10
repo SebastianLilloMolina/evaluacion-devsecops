@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        docker 'docker-cli' 
+        dockerTool 'docker-cli' 
     }
 
     stages {
@@ -16,7 +16,6 @@ pipeline {
                 echo 'Ejecutando pruebas...'
             }
         }
-
         stage('Security Scan') {
             agent { docker { image 'python:3.9-slim' } } 
             steps {
